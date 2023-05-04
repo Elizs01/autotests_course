@@ -8,7 +8,6 @@ def modification(lst):
     lst[len(lst)-1] = a
     return lst
 
-
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
 
 
