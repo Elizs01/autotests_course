@@ -15,10 +15,18 @@
 
 def josephus_task(num_people, kill_num):
     # Здесь нужно написать код
+    people = []
+    for i in range(1, num_people + 1):
+        people.append(i)
+
+    while len(people) > 1:
+        for y in range(0, kill_num - 1):
+            people.append(people[y])
+        del people[:kill_num]
+    survivor = people[0]
     return survivor
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
-
 
 data = [
     (7, 3), (11, 19), (1, 300), (14, 2), (100, 1), (1234, 56), (987, 11)
