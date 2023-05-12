@@ -13,7 +13,27 @@
 
 def max_division_by_3(num):
     # Здесь нужно написать код
+    num = str(num)
+    arrynum = []
+    rez = []
+    for p in range(len(num)):  # Записываем число в массив
+        arrynum.append(int(num[p]))
+
+    for i in range(len(arrynum)):  # Выбираем разряд числа
+        for a in range(9):  # Перебираем числа в разряде
+            if rangnumber(arrynum.copy(), i, a) % 3 == 0: # Проверяем делиться ли число на 3
+                rez.append(rangnumber(arrynum.copy(), i, a))
+    rez.sort(reverse=True)
+    new_num = rez[0]
     return new_num
+
+def rangnumber(array,index,last):  # Получаем число для проверки
+    array[index] = last + 1
+    num = ''
+    for m in range(len(array)):
+        num += str(array[m])
+    num = int(num)
+    return num
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
 
