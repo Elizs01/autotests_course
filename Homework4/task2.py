@@ -7,6 +7,12 @@
 
 def flatten_and_sort(array):
     # Здесь нужно написать код
+    result_list = []
+    for element in range(len(array)):  # Цикл выбирает элемент массива
+        for elementin in range(len(array[element])):  # Цикл выбирает элементы вложенного массива
+            result_list.append(array[element][elementin])
+    result_list.sort()  # Сортировка по возрастанию итогового массива
+
     return result_list
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ

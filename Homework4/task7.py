@@ -4,6 +4,11 @@
 
 def move_zeros(lst):
     # Здесь нужно написать код
+
+    for i in range(len(lst)):
+        if lst[i] == 0:
+            lst.remove(0)
+            lst.append(0)
     return lst
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ

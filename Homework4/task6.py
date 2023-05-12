@@ -5,7 +5,20 @@
 
 def create_phone_number(num_tuple):
     # Здесь нужно написать код
+    str_phone = ''
+    for i in range(10):
+        if i == 0:
+            str_phone += '(' + str(num_tuple[i])
+        else:
+            if i == 2:
+                str_phone += str(num_tuple[i]) + ') '
+            else:
+                if i == 5:
+                    str_phone += str(num_tuple[i]) + '-'
+                else:
+                    str_phone += str(num_tuple[i])
     return str_phone
+
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
 

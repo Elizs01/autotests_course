@@ -9,6 +9,15 @@
 
 def multiplication_chain(num):
     # Здесь нужно написать код
+    count_multy = 0
+    num = str(num)
+
+    while len(num) != 1:  # Выполняем действия пока не получим однозначное число
+        summ = 1
+        for i in range(len(num)):  # Вычисляем произведение
+            summ *= int(num[i])
+        count_multy += 1  # Считаем итерации
+        num = str(summ)  # Записываем новое число в переменную для следующей итерации
     return count_multy
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
