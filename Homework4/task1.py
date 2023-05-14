@@ -8,18 +8,14 @@ def which_triangle(a, b, c):
     # Здесь нужно написать код
     if a + b <= c or a + c <= b or c + b <= a:  # треугольник существует если сумма двух его сторон больше третьей
         type_triangle = "Не треугольник"
-        print(type_triangle)
     else:
         if a == c and c == b and b == a:  # треугольник равносторонний если три его стороны равны
             type_triangle = "Равносторонний"
-            print(type_triangle)
         else:
             if a == b or a == c or c == b:  # треугольник равнобедренный если две его стороны равны
                 type_triangle = "Равнобедренный"
-                print(type_triangle)
             else:
                 type_triangle = "Обычный"
-                print(type_triangle)
 
     return type_triangle
 
