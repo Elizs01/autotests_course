@@ -8,6 +8,9 @@
 
 def repeats(our_str):
     # Здесь нужно написать код
+    new_str = ""
+    for i in range(len(our_str)):
+        new_str += our_str[i] + '_' + str(our_str[:i+1].count(our_str[i]))
     return new_str
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
