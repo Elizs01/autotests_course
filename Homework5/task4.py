@@ -11,10 +11,18 @@
 # а 15 - ъ
 # Например (Ввод --> Вывод):
 # курс --> 6 (к=2, у=2, р=1, с=1)
+import re
 
 
 def scrabble(word):
     # Здесь нужно написать код
+    points = 0
+    count_points = {'авеёинорст': 1, 'дклмпу': 2, 'бгья': 3, 'йы': 4,
+                    'жзхцч': 5, 'фшэю': 8, 'щ': 10, 'ъ': 15}
+    for i in word:
+        for key in count_points:
+            if key.count(i) == 1:
+                points += count_points[key]
     return points
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
