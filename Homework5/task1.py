@@ -7,6 +7,11 @@
 
 
 def letter_stat(our_str):
+    """
+    Считает сколько букв в строке
+    :param our_str: строка в которой нужно посчитать буквы
+    :return: словарь в котором ключи буквы строки, а значения количество вхождений данной буквы в строку
+    """
     # Здесь нужно написать код
     letters_dict = {item: our_str.count(item) for item in our_str}
     return letters_dict

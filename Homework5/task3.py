@@ -19,12 +19,17 @@
 
 
 def everything_for_your_cat(cats_data):
+    """
+    Сгруппировання информация о каждом владельце и всех его животных
+    :param cats_data: Данные о котах и покупателях
+    :return: Данные о владельце и его животных
+    """
     # Здесь нужно написать код
     our_str = ''
     cats_dictionary = {}
     for i in cats_data:
         key_dictionary = i[2] + " " + i[3]
-        if (key_dictionary) in cats_dictionary:
+        if key_dictionary in cats_dictionary:
             cats_dictionary.update({key_dictionary: cats_dictionary.get(key_dictionary) + '; ' + i[0] + ', ' + str(i[1])})
         else:
             cats_dictionary.update({key_dictionary: str(i[0] + ', ' + str(i[1]))})
