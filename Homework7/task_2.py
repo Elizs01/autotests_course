@@ -31,19 +31,20 @@ class PersonInfo:
 
     def short_name(self):
         return f"{self.name[0]} {self.name[1][0]}."
+
     def path_deps(self):
-        par = ''
+        path_deps = ''
         for i in self.department:
-            par += f"{i} --> "
-        par = par[0:len(par)-5]
-        return par
+            path_deps += f"{i} --> "
+        path_deps = path_deps[0:len(path_deps)-5]
+        return path_deps
 
     def new_salary(self):
-        lr = ""
+        department = ""
         for q in self.department:
-            lr += q
-        a = Counter(lr).most_common(3)
-        return 1337 * (a[0][1] + a[1][1] + a[2][1]) * self.age
+            department += q
+        kff = Counter(department).most_common(3)
+        return 1337 * (kff[0][1] + kff[1][1] + kff[2][1]) * self.age
         return 0
 
 

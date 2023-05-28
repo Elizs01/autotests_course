@@ -50,10 +50,8 @@ class Bus(PublicTransport):
 
     @park.setter
     def park(self, park):
-        print(park)
-        if 1000 < park < 9999:
-            self.__park = park
-        print(self.__park)
+        assert 1000 < park < 9999
+        self.__park = park
 
 class Tram(PublicTransport):
     def __init__(self, brand, engine_power, year, color, max_speed, route, path, fare):
@@ -66,8 +64,6 @@ class Tram(PublicTransport):
     def how_long(self):
         return self.max_speed / (4 * self.path)
 
-f_bus = Bus('ЛиАЗ11', 210, 2015, 'Зеленый111', 100, 70, 1232, 32)
-f_bus.park = 1255
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
 transport = PublicTransport('Автомобиль', 500, 2040, 'Фиолетовый', 300)
