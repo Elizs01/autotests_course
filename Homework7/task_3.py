@@ -25,6 +25,10 @@
 
 # Здесь пишем код
 class PublicTransport:
+    """
+    Класс содержит информацию о марке транспорта, мощности двигателя, годе выпуска, увете, максимальной скорости
+    """
+
     def __init__(self, brand, engine_power, year, color, max_speed):
         self.brand = brand
         self._engine_power = engine_power
@@ -34,10 +38,16 @@ class PublicTransport:
 
     @property
     def info(self):
+        """
+        Выводит на печать информацию о: марке, цвете, годе выпуска и мощности двигателя
+        """
         print(self.brand, self.color, self.year, self._engine_power)
 
 
 class Bus(PublicTransport):
+    """
+    Унаследованный от PublicTransport, дополнительные атрибуты: кол-во пассажиров, парк приписки автобуса, стоимость проезда
+    """
     def __init__(self, brand, engine_power, year, color, max_speed, passengers, park, fare):
         super().__init__(brand, engine_power, year, color, max_speed)
         self.passengers = passengers
@@ -46,14 +56,26 @@ class Bus(PublicTransport):
 
     @property
     def park(self):
+        """
+        Возвращает значение park
+        :return: park
+        """
         return self.__park
 
     @park.setter
     def park(self, park):
+        """
+        Изменяет значение park, если оно в диапазоне от 1000 до 9999
+        :param park: Новое значение park
+        """
         assert 1000 < park < 9999
         self.__park = park
 
+
 class Tram(PublicTransport):
+    """
+    Унаследованный от PublicTransport, дополнительное атрибуты: маршрут трамвая, длина маршрута, стоимость проезда
+    """
     def __init__(self, brand, engine_power, year, color, max_speed, route, path, fare):
         super().__init__(brand, engine_power, year, color, max_speed)
         self.__route = route
@@ -62,6 +84,10 @@ class Tram(PublicTransport):
 
     @property
     def how_long(self):
+        """
+        Вычисляет время прохождения маршрута по формуле max_speed/(4*path)
+        :return: Время прохождения маршрута
+        """
         return self.max_speed / (4 * self.path)
 
 

@@ -13,23 +13,34 @@ import math
 
 # Здесь пишем код
 class Segment:
+    """
+    Координаты двух точек
+    """
     def __init__(self, one_point,  second_point):
         self.one_point = one_point
         self.second_point = second_point
+
     def length(self):
+        """
+        Вычисляет длинну отрезка по двум точкам
+        :return: возвращает длину отрезка, с округлением до 2 знаков после запятой
+        """
         return round(math.sqrt(math.pow(self.second_point[0] - self.one_point[0], 2) + (math.pow(self.second_point[1] - self.one_point[1], 2))), 2)
 
     def x_axis_intersection(self):
-        if self.one_point[1] > 0 and self.second_point[1] < 0 or self.one_point[1] < 0 and self.second_point[1] > 0:
-            return True
-        else:
-            return False
+        """
+        Проверяет пересекает ли отрезок ось абцисс
+        :return: True, если отрезок пересекает ось абцисс, иначе False
+        """
+        return self.one_point[1] > 0 and self.second_point[1] < 0 or self.one_point[1] < 0 and self.second_point[1] > 0
 
     def y_axis_intersection(self):
-        if self.one_point[0] > 0 and self.second_point[0] < 0 or self.one_point[0] < 0 and self.second_point[0] > 0:
-            return True
-        else:
-            return False
+        """
+        Проверяет пересекает ли отрезок ось ординат
+        :return: True, если отрезок пересекает ось ординат, иначе False
+        :return:
+        """
+        return self.one_point[0] > 0 and self.second_point[0] < 0 or self.one_point[0] < 0 and self.second_point[0] > 0
 
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
