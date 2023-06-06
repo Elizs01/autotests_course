@@ -22,30 +22,39 @@
 # 1337*32*9 = 385056
 from collections import Counter
 
+
 # Здесь пишем код
 class PersonInfo:
+    """
+    Информация о сотруднике (Имя фамилия, возраст, подразделение)
+    """
     def __init__(self, name, age, *department):
-        self.name = [name[name.find(" ") + 1:], name[0:name.find(" ")]]
+        self.name, self.firstname = name.split(" ")
         self.age = age
         self.department = department
 
     def short_name(self):
-        return f"{self.name[0]} {self.name[1][0]}."
+        """
+        Преобразует формат отображения Фамилии и Имени
+        :return: строку Фамилия И.
+        """
+        return f"{self.firstname} {self.name[0]}."
 
     def path_deps(self):
-        path_deps = ''
-        for i in self.department:
-            path_deps += f"{i} --> "
-        path_deps = path_deps[0:len(path_deps)-5]
-        return path_deps
+        """
+        Преобразует путь до подразделения в заданном формате
+        :return: возвращает путь "Головное подразделение --> ... --> Конечное подразделение"
+        """
+        return " --> ".join(self.department)
 
     def new_salary(self):
-        department = ""
-        for q in self.department:
-            department += q
-        kff = Counter(department).most_common(3)
+        """
+        Вычисляет новую зарплату согласно формуле
+        1337*Возраст*суммарное кол-во вхождений трех наиболее часто встречающихся букв из списка подразделений
+        :return: новая зарплата
+        """
+        kff = Counter("".join(self.department)).most_common(3)
         return 1337 * (kff[0][1] + kff[1][1] + kff[2][1]) * self.age
-        return 0
 
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
