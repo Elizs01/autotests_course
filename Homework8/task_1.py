@@ -16,8 +16,23 @@
 
 import unittest  # Не удалять
 
-# Здесь пишем код
 
+# Здесь пишем код
+def treatment_sum(our_tuple):
+    """
+    Складывает два элемента, на вход должно поступить два числа
+    :param our_tuple: кортеж
+    :return: сумма двух чисел
+    """
+    try:
+        if len(our_tuple) > 2:
+            raise Exception('Много данных')
+        else:
+            return our_tuple[0] + our_tuple[1]
+    except TypeError:
+        return 'Нельзя сложить эти данные'
+    except IndexError:
+        return 'Недостаточно данных'
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
 
 
