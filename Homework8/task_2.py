@@ -19,24 +19,19 @@ import unittest  # Не удалять
 # Здесь пишем код
 class Trigon:
     """
-    Стороны существующего треугольника
+    Стороны треугольника
     """
     def __init__(self, *number):
         if len(number) == 3:
-            a, b, c = number[0:3]
+            self.a, self.b, self.c = number[0], number[0], number[2]
         else:
             raise IndexError(f"Передано {len(number)} аргументов, а ожидается 3")
-        if type(a) != int or type(b) != int or type(c) != int:
+        if type(self.a) != int or type(self.b) != int or type(self.c) != int:
             raise TypeError('Стороны должны быть числами')
-        else:
-            if a <= 0 or b <= 0 or c <= 0:
-                raise ValueError('Стороны должны быть положительными')
-            if int(a) + int(b) <= int(c) or a + c <= b or c + b <= a:
-                raise Exception("Не треугольник")
-            else:
-                self.a = a
-                self.b = b
-                self.c = c
+        if self.a <= 0 or self.b <= 0 or self.c <= 0:
+            raise ValueError('Стороны должны быть положительными')
+        if int(self.a) + int(self.b) <= int(self.c) or self.a + self.c <= self.b or self.c + self.b <= self.a:
+            raise Exception("Не треугольник")
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
 
