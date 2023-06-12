@@ -10,5 +10,3 @@ def all_division(*arg1):
     for i in arg1[1:]:
         division /= i
     return division
-
-
