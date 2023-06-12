@@ -12,4 +12,3 @@ def all_division(*arg1):
     return division
 
 
-
