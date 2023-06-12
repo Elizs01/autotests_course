@@ -11,3 +11,5 @@ def all_division(*arg1):
         division /= i
     return division
 
+
+
