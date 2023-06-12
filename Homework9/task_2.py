@@ -30,7 +30,35 @@
 # help(func1) должен выводит одинаковый текст, когда есть декоратор на функции func1 и когда его нет
 # Реализовать без подключения новых модулей и сторонних библиотек.
 
-
-import datetime
-
 # Здесь пишем код
+from datetime import datetime
+from pathlib import Path
+import time
+
+def func_log(file_log='log.txt'):
+    """
+    Запись в файл названия функции и текущей даты и времени
+    :param file_log: название файла в который выполняется запись
+    """
+    def writefunc(func):
+        func()
+        f = open(Path(Path.cwd(), file_log), mode='r+', encoding='utf-8')
+        datetimenow = datetime.strftime(datetime.today(), "%d.%m %H:%M:%S")
+        f.seek(0, 2)
+        f.write(f"{func.__name__} вызвана {datetimenow}\n")
+    return writefunc
+
+
+@func_log()
+def func1():
+    time.sleep(3)
+
+
+@func_log(file_log='func2.txt')
+def func2():
+    time.sleep(5)
+
+func1()
+func2()
+func2()
+func1()
